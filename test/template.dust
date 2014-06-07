@@ -1,0 +1,15 @@
+<html>
+  <head>
+	{?title}
+	  <title>{title|s}</title>
+	{/title}
+  </head>
+  <body>
+	<h1>{title}</h1>
+	{@eq key=mood value="happy"}
+	  You're happy!
+	{:else}
+	  You're sad! Why not play some Flappy Bird?
+	{/eq}
+  </body>
+</html>
