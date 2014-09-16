@@ -1,28 +1,28 @@
 {
-	"name": "browserify-dustjs",
-	"version": "0.0.2",
-	"description": "browserify transform for dustjs template files",
-	"main": "index.js",
-	"keywords": [
-		"browserify",
-		"browserify-transform",
-		"transform",
-		"plugin",
-		"js",
-		"dustjs"
-	],
-	"author": "Hashan Punchihewa <hashan.punchihewa@gmail.com>",
-	"license": "BSD-2-Clause",
-	"dependencies": {
-		"through": "~2.3.4"
-	},
-	"peerDependencies": {
-		"dustjs-linkedin": "*",
-		"dustjs-helpers":">= 1.1.1"
-	},
-	"devDependencies": {
-		"browserify": "~4.1.8",
-		"dustjs-linkedin": "*",
-		"dustjs-helpers":">= 1.1.1"
-	}
+  "name": "browserify-dustjs",
+  "version": "0.0.3",
+  "description": "browserify transform for dustjs template files",
+  "main": "index.js",
+  "keywords": [
+    "browserify",
+    "browserify-transform",
+    "transform",
+    "plugin",
+    "js",
+    "dustjs"
+  ],
+  "author": "Hashan Punchihewa <hashan.punchihewa@gmail.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "through": "~2.3.4"
+  },
+  "peerDependencies": {
+    "dustjs-linkedin": "*",
+    "dustjs-helpers": ">= 1.1.1"
+  },
+  "devDependencies": {
+    "browserify": "~4.1.8",
+    "dustjs-linkedin": "*",
+    "dustjs-helpers": ">= 1.1.1"
+  }
 }
