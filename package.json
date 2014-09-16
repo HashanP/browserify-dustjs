@@ -18,11 +18,11 @@
 	},
 	"peerDependencies": {
 		"dustjs-linkedin": "*",
-		"dustjs-helpers":"*"
+		"dustjs-helpers":">= 1.1.1"
 	},
 	"devDependencies": {
 		"browserify": "~4.1.8",
 		"dustjs-linkedin": "*",
-		"dustjs-helpers":"*"
+		"dustjs-helpers":">= 1.1.1"
 	}
 }
