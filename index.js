@@ -5,7 +5,8 @@ var filenamePattern = /\.(dust|html)$/;
 
 var wrap = function (filename, template) {
     return 'var dust = require("dustjs-linkedin/lib/dust");' +
-		'dust.helper = require("dustjs-helpers");' +
+		'var helpers = require("dustjs-helpers").helpers;' +
+		'dust.helpers = helpers;' +
 		'module.exports = function(data, cb) {' +
 		'if(!cb) {' +
 		'cb = data;' +
