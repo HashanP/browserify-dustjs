@@ -11,6 +11,10 @@
     "js",
     "dustjs"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TheMuses/browserify-dustjs.git"
+  },
   "author": "Hashan Punchihewa <hashan.punchihewa@gmail.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
