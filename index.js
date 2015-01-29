@@ -5,7 +5,6 @@ var filenamePattern = /\.(dust|html)$/,
     fileName = /\/.*\/(.*).(dust|html)$/;
 
 var wrap = function (filename, template) {
-    console.log(filename);
     return 'var dust = require("dustjs-linkedin/lib/dust");' +
 		'var helpers = require("dustjs-helpers").helpers;' +
 		'dust.helpers = helpers;' +
