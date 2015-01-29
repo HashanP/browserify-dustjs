@@ -20,14 +20,14 @@ var wrap = function (filename, template) {
 module.exports = function (file) {
     if (!filenamePattern.test(file)) return through();
 
-    file = file.match(fileName).slice(1);
+    var filename = file.match(fileName).slice(1).join('.');
     var input = "";
     var write = function(buffer) {
 		input += buffer;
     };
 
     var end = function() {
-		this.queue(wrap(file.join('.'), dust.compile(input, file)));
+		this.queue(wrap(filename, dust.compile(input, filename)));
 		this.queue(null);
     };
 
