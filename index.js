@@ -1,7 +1,8 @@
 var through = require("through");
 var dust = require("dustjs-linkedin");
 
-var filenamePattern = /\.(dust|html)$/;
+var filenamePattern = /\.(dust|html)$/,
+    fileName = /\/.*\/(.*).(dust|html)$/;
 
 var wrap = function (filename, template) {
     return 'var dust = require("dustjs-linkedin/lib/dust");' +
@@ -19,13 +20,14 @@ var wrap = function (filename, template) {
 module.exports = function (file) {
     if (!filenamePattern.test(file)) return through();
 
+    var filename = file.match(fileName).slice(1).join('.');
     var input = "";
     var write = function(buffer) {
 		input += buffer;
     };
 
     var end = function() {
-		this.queue(wrap(file, dust.compile(input, file)));
+		this.queue(wrap(filename, dust.compile(input, filename)));
 		this.queue(null);
     };
 
