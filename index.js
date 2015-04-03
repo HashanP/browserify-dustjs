@@ -1,35 +1,60 @@
+var path = require('path');
+
 var through = require("through");
 var dust = require("dustjs-linkedin");
 
-var filenamePattern = /\.(dust|html)$/,
-    fileName = /\/.*\/(.*).(dust|html)$/;
+var extensions = ['.dust', '.html'];
+var leadsWithDot = /^\./;
 
 var wrap = function (filename, template) {
-    return 'var dust = require("dustjs-linkedin/lib/dust");' +
-		'var helpers = require("dustjs-helpers").helpers;' +
-		'dust.helpers = helpers;' +
-		'module.exports = function(data, cb) {' +
-		'if(!cb) {' +
-		'cb = data;' +
-		'data = {};' +
-		'}' +
-		'dust.render("' + filename + '", data, cb);' +
-		'};' + template;
+  return 'var dust = require("dustjs-linkedin/lib/dust");' +
+    'var helpers = require("dustjs-helpers").helpers;' +
+    'dust.helpers = helpers;' +
+    'module.exports = function(data, cb) {' +
+    'if(!cb) {' +
+    'cb = data;' +
+    'data = {};' +
+    '}' +
+    'dust.render("' + filename + '", data, cb);' +
+    '};' + template;
 };
 
-module.exports = function (file) {
-    if (!filenamePattern.test(file)) return through();
+function dustTransform (file) {
+  if (extensions.indexOf(path.extname(file)) < 0){
+    return through();
+  }
 
-    var filename = file.match(fileName).slice(1).join('.');
-    var input = "";
-    var write = function(buffer) {
-		input += buffer;
-    };
+  var filename = path.basename(file);
+  var input = "";
+  var write = function(buffer) {
+    input += buffer;
+  };
 
-    var end = function() {
-		this.queue(wrap(filename, dust.compile(input, filename)));
-		this.queue(null);
-    };
+  var end = function() {
+    this.queue(wrap(filename, dust.compile(input, filename)));
+    this.queue(null);
+  };
 
-    return through(write, end);
+  return through(write, end);
 };
+
+module.exports = dustTransform;
+
+dustTransform.configure = function(ext) {
+  if ('string' === typeof ext) {
+    extensions.push(ensureLeadsWithDot(ext));
+  } else if (Array.isArray(ext)) {
+    extensions = ext.map(ensureLeadsWithDot);
+  }
+
+  console.log('extensions', extensions.join(', '));
+
+  return dustTransform;
+}
+
+function ensureLeadsWithDot(str) {
+  if (!leadsWithDot.test(str)) {
+    return '.'+str;
+  }
+  return str;
+}
