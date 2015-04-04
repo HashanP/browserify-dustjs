@@ -1,4 +1,4 @@
-browserify-dustjs
+browserify-dustjs [![NPM Module](http://img.shields.io/npm/v/browserify-dustjs.svg?style=flat-square)](https://npmjs.org/package/browserify-dustjs) [![NPM Module](https://img.shields.io/npm/dm/browserify-dustjs.svg?style=flat-square)](https://npmjs.org/package/browserify-dustjs)
 =================
 
 browserify transform for dust template files
