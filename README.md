@@ -30,7 +30,7 @@ To use it from the command line:
 browserify -t browserify-dustjs file.js
 ```
 
-To use it from the node:
+To use it from node:
 ```js
 var browserify = require('browserify');
 var dustify = require('browserify-dustjs');
