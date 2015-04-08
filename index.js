@@ -42,12 +42,13 @@ module.exports = dustTransform;
 
 dustTransform.configure = function(ext) {
   if ('string' === typeof ext) {
-    extensions.push(ensureLeadsWithDot(ext));
+    ext = ensureLeadsWithDot(ext);
+    if (!~extensions.indexOf(ext)) {
+      extensions.push(ext);
+    }
   } else if (Array.isArray(ext)) {
     extensions = ext.map(ensureLeadsWithDot);
   }
-
-  console.log('extensions', extensions.join(', '));
 
   return dustTransform;
 }
