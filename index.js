@@ -19,12 +19,12 @@ var wrap = function (filename, template) {
     '};' + template;
 };
 
-function dustTransform (file) {
+function dustTransform (file, opts) {
   if (extensions.indexOf(path.extname(file)) < 0){
     return through();
   }
 
-  var filename = path.basename(file);
+  var filename = opts.length > 0 ? file.slice(opts[0].length, file.indexOf(path.extname(file))) : path.basename(file);
   var input = "";
   var write = function(buffer) {
     input += buffer;
