@@ -24,7 +24,7 @@ function dustTransform (file, opts) {
     return through();
   }
 
-  var filename = opts.length > 0 ? file.slice(opts[0].length, file.indexOf(path.extname(file))) : path.basename(file);
+	var filename = path.basename(path.relative(process.cwd(), file));
   var input = "";
   var write = function(buffer) {
     input += buffer;
