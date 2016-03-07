@@ -1,6 +1,6 @@
 {
   "name": "browserify-dustjs",
-  "version": "0.2.0-beta.0",
+  "version": "0.2.0-beta.1",
   "description": "browserify transform for dustjs template files",
   "main": "index.js",
   "keywords": [
