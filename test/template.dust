@@ -5,7 +5,7 @@
 	{/title}
   </head>
   <body>
-	{> "fight.dust" /}
+	{> "fight" /}
 	<h1>{title}</h1>
 	{@eq key=mood value="happy"}
 	  You're happy!
