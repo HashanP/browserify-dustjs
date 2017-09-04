@@ -1,6 +1,6 @@
 {
   "name": "browserify-dustjs",
-  "version": "0.2.0-beta.2",
+  "version": "0.2.0",
   "description": "browserify transform for dustjs template files",
   "main": "index.js",
   "keywords": [
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:TheMuses/browserify-dustjs.git"
+    "url": "git@github.com:HashanP/browserify-dustjs.git"
   },
   "author": "Hashan Punchihewa <hashan.punchihewa@gmail.com>",
   "license": "BSD-2-Clause",
